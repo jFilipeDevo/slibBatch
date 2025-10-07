@@ -1,0 +1,675 @@
+2025-10-06T16:45:11.478+01:00  INFO 19524 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 19524 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T16:45:11.480+01:00  INFO 19524 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T16:45:12.372+01:00  WARN 19524 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.batch.core.repository.JobRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-10-06T16:45:12.383+01:00  INFO 19524 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T16:45:12.412+01:00 ERROR 19524 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.slib.BatchJobConfig required a bean of type 'org.springframework.batch.core.repository.JobRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.batch.core.repository.JobRepository' in your configuration.
+
+2025-10-06T16:46:31.350+01:00  INFO 24712 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 24712 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T16:46:31.352+01:00  INFO 24712 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T16:46:31.833+01:00  INFO 24712 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 9 ms.
+2025-10-06T16:46:32.262+01:00 ERROR 24712 --- [main] com.zaxxer.hikari.HikariConfig           : Failed to load driver class com.mysql.cj.jdbc.Driver from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@14dad5dc
+2025-10-06T16:46:32.267+01:00  WARN 24712 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'
+2025-10-06T16:46:32.279+01:00  INFO 24712 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T16:46:32.310+01:00 ERROR 24712 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.target' to javax.sql.DataSource:
+
+    Property: spring.datasource.target.driver-class-name
+    Value: "com.mysql.cj.jdbc.Driver"
+    Origin: class path resource [application.properties] - 17:44
+    Reason: java.lang.RuntimeException: Failed to load driver class com.mysql.cj.jdbc.Driver in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+
+2025-10-06T16:47:43.068+01:00  INFO 8264 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 8264 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T16:47:43.070+01:00  INFO 8264 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T16:47:43.569+01:00  INFO 8264 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 6 ms.
+2025-10-06T16:47:43.935+01:00 ERROR 8264 --- [main] com.zaxxer.hikari.HikariConfig           : Failed to load driver class com.mysql.cj.jdbc.Driver from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@14dad5dc
+2025-10-06T16:47:43.939+01:00  WARN 8264 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'
+2025-10-06T16:47:43.953+01:00  INFO 8264 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T16:47:43.979+01:00 ERROR 8264 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.target' to javax.sql.DataSource:
+
+    Property: spring.datasource.target.driver-class-name
+    Value: "com.mysql.cj.jdbc.Driver"
+    Origin: class path resource [application.properties] - 17:44
+    Reason: java.lang.RuntimeException: Failed to load driver class com.mysql.cj.jdbc.Driver in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+
+2025-10-06T17:01:36.467+01:00  INFO 20536 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 20536 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:01:36.470+01:00  INFO 20536 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:01:37.000+01:00  INFO 20536 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 7 ms.
+2025-10-06T17:01:37.392+01:00  WARN 20536 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Cannot resolve reference to bean 'transactionManager' while setting bean property 'transactionManager'
+2025-10-06T17:01:37.405+01:00  INFO 20536 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:01:37.429+01:00 ERROR 20536 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.slib.BatchJobConfig required a bean named 'transactionManager' that could not be found.
+
+
+Action:
+
+Consider defining a bean named 'transactionManager' in your configuration.
+
+2025-10-06T17:02:37.863+01:00  INFO 22728 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 22728 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:02:37.865+01:00  INFO 22728 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:02:38.371+01:00  INFO 22728 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 9 ms.
+2025-10-06T17:02:38.807+01:00  WARN 22728 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Cannot resolve reference to bean 'transactionManager' while setting bean property 'transactionManager'
+2025-10-06T17:02:38.825+01:00  INFO 22728 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:02:38.864+01:00 ERROR 22728 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.slib.BatchJobConfig required a bean named 'transactionManager' that could not be found.
+
+
+Action:
+
+Consider defining a bean named 'transactionManager' in your configuration.
+
+2025-10-06T17:03:29.601+01:00  INFO 25140 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 25140 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:03:29.604+01:00  INFO 25140 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:03:30.098+01:00  INFO 25140 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 6 ms.
+2025-10-06T17:03:30.604+01:00  WARN 25140 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Cannot resolve reference to bean 'transactionManager' while setting bean property 'transactionManager'
+2025-10-06T17:03:30.625+01:00  INFO 25140 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:03:30.669+01:00 ERROR 25140 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.slib.BatchJobConfig required a bean named 'transactionManager' that could not be found.
+
+
+Action:
+
+Consider defining a bean named 'transactionManager' in your configuration.
+
+2025-10-06T17:04:39.430+01:00  INFO 10964 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 10964 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:04:39.432+01:00  INFO 10964 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:04:39.928+01:00  INFO 10964 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 8 ms.
+2025-10-06T17:04:40.458+01:00  INFO 10964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:04:41.798+01:00  WARN 10964 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+2025-10-06T17:04:41.822+01:00  INFO 10964 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:04:41.853+01:00 ERROR 10964 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1221) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1187) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at com.slib.MyApplication.main(MyApplication.java:13) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1760) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1643) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 20 common frames omitted
+Caused by: org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta-data
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:357) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.batch.support.DatabaseType.fromMetaData(DatabaseType.java:86) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.repository.support.JobRepositoryFactoryBean.afterPropertiesSet(JobRepositoryFactoryBean.java:273) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 31 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:331) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	... 35 common frames omitted
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "target_user"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.8.jar:42.7.8]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	... 36 common frames omitted
+
+2025-10-06T17:05:50.514+01:00  INFO 8520 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 8520 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:05:50.516+01:00  INFO 8520 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:05:50.999+01:00  INFO 8520 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 6 ms.
+2025-10-06T17:05:51.457+01:00  INFO 8520 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:05:52.772+01:00  WARN 8520 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+2025-10-06T17:05:52.796+01:00  INFO 8520 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:05:52.817+01:00 ERROR 8520 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1221) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1187) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at com.slib.MyApplication.main(MyApplication.java:13) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1760) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1643) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 20 common frames omitted
+Caused by: org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta-data
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:357) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.batch.support.DatabaseType.fromMetaData(DatabaseType.java:86) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.repository.support.JobRepositoryFactoryBean.afterPropertiesSet(JobRepositoryFactoryBean.java:273) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 31 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:331) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	... 35 common frames omitted
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgress"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.8.jar:42.7.8]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	... 36 common frames omitted
+
+2025-10-06T17:08:05.580+01:00  INFO 12936 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 12936 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:08:05.585+01:00  INFO 12936 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:08:06.068+01:00  INFO 12936 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 7 ms.
+2025-10-06T17:08:06.416+01:00  INFO 12936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:08:07.618+01:00  WARN 12936 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+2025-10-06T17:08:07.632+01:00  INFO 12936 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:08:07.654+01:00 ERROR 12936 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchJobConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\BatchJobConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1221) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1187) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at com.slib.MyApplication.main(MyApplication.java:13) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jobRepository': Could not get Connection for extracting meta-data
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1760) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1643) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 20 common frames omitted
+Caused by: org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta-data
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:357) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.batch.support.DatabaseType.fromMetaData(DatabaseType.java:86) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.repository.support.JobRepositoryFactoryBean.afterPropertiesSet(JobRepositoryFactoryBean.java:273) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 31 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:331) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	... 35 common frames omitted
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgress"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.8.jar:42.7.8]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.8.jar:42.7.8]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-6.2.11.jar:6.2.11]
+	... 36 common frames omitted
+
+2025-10-06T17:08:29.354+01:00  INFO 15588 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 15588 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:08:29.356+01:00  INFO 15588 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:08:29.718+01:00  INFO 15588 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 5 ms.
+2025-10-06T17:08:30.036+01:00  INFO 15588 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:08:30.283+01:00  INFO 15588 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4096aa05
+2025-10-06T17:08:30.285+01:00  INFO 15588 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-06T17:08:30.298+01:00  INFO 15588 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2025-10-06T17:08:30.358+01:00  INFO 15588 --- [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2025-10-06T17:08:30.367+01:00  WARN 15588 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyJobScheduler': Unsatisfied dependency expressed through field 'myHourlyBatchJob': No qualifying bean of type 'org.springframework.batch.core.Job' available: expected single matching bean but found 2: shellScriptJob,migrationJob
+2025-10-06T17:08:30.367+01:00  INFO 15588 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-06T17:08:30.370+01:00  INFO 15588 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-06T17:08:30.378+01:00  INFO 15588 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:08:30.397+01:00 ERROR 15588 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field myHourlyBatchJob in com.slib.DailyJobScheduler required a single bean, but 2 were found:
+	- shellScriptJob: defined by method 'shellScriptJob' in class path resource [com/slib/BatchJobConfig.class]
+	- migrationJob: defined by method 'migrationJob' in class path resource [com/slib/MigrationBatchConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2025-10-06T17:09:04.722+01:00  INFO 25524 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 25524 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:09:04.724+01:00  INFO 25524 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:09:05.074+01:00  INFO 25524 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 5 ms.
+2025-10-06T17:09:05.426+01:00  INFO 25524 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:09:05.682+01:00  INFO 25524 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@40e60ece
+2025-10-06T17:09:05.684+01:00  INFO 25524 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-06T17:09:05.696+01:00  INFO 25524 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2025-10-06T17:09:05.725+01:00  INFO 25524 --- [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2025-10-06T17:09:05.740+01:00  WARN 25524 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyJobScheduler': Unsatisfied dependency expressed through field 'myHourlyBatchJob': Error creating bean with name 'migrationBatchConfig' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\MigrationBatchConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'javax.sql.DataSource' available: expected single matching bean but found 3: sourceDataSource,targetDataSource,dataSource
+2025-10-06T17:09:05.741+01:00  INFO 25524 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-06T17:09:05.744+01:00  INFO 25524 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-06T17:09:05.757+01:00  INFO 25524 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:09:05.779+01:00 ERROR 25524 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.slib.MigrationBatchConfig required a single bean, but 3 were found:
+	- sourceDataSource: defined by method 'sourceDataSource' in class path resource [com/slib/DataSourceConfig.class]
+	- targetDataSource: defined by method 'targetDataSource' in class path resource [com/slib/DataSourceConfig.class]
+	- dataSource: defined by method 'dataSource' in class path resource [com/slib/DataSourceConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2025-10-06T17:09:28.856+01:00  INFO 19736 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 19736 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:09:28.857+01:00  INFO 19736 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:09:29.211+01:00  INFO 19736 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 5 ms.
+2025-10-06T17:09:29.565+01:00  INFO 19736 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:09:29.802+01:00  INFO 19736 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@11b455e5
+2025-10-06T17:09:29.804+01:00  INFO 19736 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-06T17:09:29.814+01:00  INFO 19736 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2025-10-06T17:09:29.845+01:00  INFO 19736 --- [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2025-10-06T17:09:29.922+01:00  INFO 19736 --- [main] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2025-10-06T17:09:29.927+01:00  INFO 19736 --- [main] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2025-10-06T17:09:30.079+01:00  INFO 19736 --- [main] com.slib.MyApplication                   : Started MyApplication in 1.733 seconds (process running for 2.534)
+2025-10-06T17:09:59.419+01:00  INFO 19736 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-06T17:09:59.423+01:00  INFO 19736 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-06T17:13:11.069+01:00  INFO 9512 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 9512 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:13:11.072+01:00  INFO 9512 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:13:11.521+01:00  INFO 9512 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 8 ms.
+2025-10-06T17:13:11.881+01:00  INFO 9512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:13:12.120+01:00  INFO 9512 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9e2ad91
+2025-10-06T17:13:12.121+01:00  INFO 9512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-06T17:13:12.132+01:00  INFO 9512 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2025-10-06T17:13:12.164+01:00  INFO 9512 --- [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2025-10-06T17:13:12.212+01:00  INFO 9512 --- [main] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2025-10-06T17:13:12.216+01:00  INFO 9512 --- [main] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2025-10-06T17:13:12.353+01:00  INFO 9512 --- [main] com.slib.MyApplication                   : Started MyApplication in 1.809 seconds (process running for 2.56)
+2025-10-06T17:15:10.382+01:00  INFO 9512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-06T17:15:10.388+01:00  INFO 9512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-06T17:17:43.756+01:00  INFO 23280 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 23280 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:17:43.758+01:00  INFO 23280 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:17:44.096+01:00  INFO 23280 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 5 ms.
+2025-10-06T17:17:44.474+01:00  INFO 23280 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:17:44.729+01:00  INFO 23280 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70f822e
+2025-10-06T17:17:44.731+01:00  INFO 23280 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-06T17:17:44.742+01:00  INFO 23280 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2025-10-06T17:17:44.780+01:00  INFO 23280 --- [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2025-10-06T17:17:44.844+01:00  INFO 23280 --- [main] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2025-10-06T17:17:44.850+01:00  INFO 23280 --- [main] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2025-10-06T17:17:45.016+01:00  INFO 23280 --- [main] com.slib.MyApplication                   : Started MyApplication in 1.777 seconds (process running for 2.506)
+2025-10-06T17:17:53.324+01:00  INFO 23280 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-06T17:17:53.328+01:00  INFO 23280 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-06T17:20:08.385+01:00  INFO 6432 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 6432 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:20:08.386+01:00  INFO 6432 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:20:08.702+01:00  WARN 6432 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.slib.MyApplication]: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+2025-10-06T17:20:08.709+01:00  INFO 6432 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:20:08.733+01:00 ERROR 6432 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.slib.MyApplication]: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:850) ~[spring-context-6.2.11.jar:6.2.11]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:847) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:817) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at com.slib.MyApplication.main(MyApplication.java:13) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:99) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:247) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processMemberClasses(ConfigurationClassParser.java:427) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:308) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:281) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:617) ~[spring-context-6.2.11.jar:6.2.11]
+	... 17 common frames omitted
+Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.sql.init.DatabaseInitializationMode.ALWAYS 
+	at java.base/java.lang.Enum.valueOf(Enum.java:293) ~[na:na]
+	at org.springframework.boot.sql.init.DatabaseInitializationMode.valueOf(DatabaseInitializationMode.java:26) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.sql.init.OnDatabaseInitializationCondition.getDatabaseInitializationMode(OnDatabaseInitializationCondition.java:75) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.sql.init.OnDatabaseInitializationCondition.getMatchOutcome(OnDatabaseInitializationCondition.java:60) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	... 23 common frames omitted
+
+2025-10-06T17:20:54.947+01:00  INFO 14780 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 14780 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:20:54.949+01:00  INFO 14780 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:20:55.246+01:00  WARN 14780 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.slib.MyApplication]: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+2025-10-06T17:20:55.253+01:00  INFO 14780 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:20:55.270+01:00 ERROR 14780 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.slib.MyApplication]: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:850) ~[spring-context-6.2.11.jar:6.2.11]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:847) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:817) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at com.slib.MyApplication.main(MyApplication.java:13) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:99) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:247) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processMemberClasses(ConfigurationClassParser.java:427) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:308) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:281) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:617) ~[spring-context-6.2.11.jar:6.2.11]
+	... 17 common frames omitted
+Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.sql.init.DatabaseInitializationMode.ALWAYS 
+	at java.base/java.lang.Enum.valueOf(Enum.java:293) ~[na:na]
+	at org.springframework.boot.sql.init.DatabaseInitializationMode.valueOf(DatabaseInitializationMode.java:26) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.sql.init.OnDatabaseInitializationCondition.getDatabaseInitializationMode(OnDatabaseInitializationCondition.java:75) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.sql.init.OnDatabaseInitializationCondition.getMatchOutcome(OnDatabaseInitializationCondition.java:60) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	... 23 common frames omitted
+
+2025-10-06T17:21:26.393+01:00  INFO 22400 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 22400 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:21:26.395+01:00  INFO 22400 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:21:26.725+01:00  WARN 22400 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.slib.MyApplication]: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+2025-10-06T17:21:26.732+01:00  INFO 22400 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:21:26.750+01:00 ERROR 22400 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.slib.MyApplication]: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:850) ~[spring-context-6.2.11.jar:6.2.11]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:847) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:817) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at com.slib.MyApplication.main(MyApplication.java:13) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:99) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:247) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processMemberClasses(ConfigurationClassParser.java:427) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:308) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:281) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:617) ~[spring-context-6.2.11.jar:6.2.11]
+	... 17 common frames omitted
+Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.sql.init.DatabaseInitializationMode.ALWAYS 
+	at java.base/java.lang.Enum.valueOf(Enum.java:293) ~[na:na]
+	at org.springframework.boot.sql.init.DatabaseInitializationMode.valueOf(DatabaseInitializationMode.java:26) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.sql.init.OnDatabaseInitializationCondition.getDatabaseInitializationMode(OnDatabaseInitializationCondition.java:75) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.sql.init.OnDatabaseInitializationCondition.getMatchOutcome(OnDatabaseInitializationCondition.java:60) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	... 23 common frames omitted
+
+2025-10-06T17:21:45.979+01:00  INFO 25096 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 25096 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:21:45.981+01:00  INFO 25096 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:21:46.281+01:00  WARN 25096 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.slib.MyApplication]: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+2025-10-06T17:21:46.287+01:00  INFO 25096 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-06T17:21:46.304+01:00 ERROR 25096 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.slib.MyApplication]: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:850) ~[spring-context-6.2.11.jar:6.2.11]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:847) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:817) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at com.slib.MyApplication.main(MyApplication.java:13) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:99) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:247) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processMemberClasses(ConfigurationClassParser.java:427) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:308) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:281) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:617) ~[spring-context-6.2.11.jar:6.2.11]
+	... 17 common frames omitted
+Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.sql.init.DatabaseInitializationMode.ALWAYS 
+	at java.base/java.lang.Enum.valueOf(Enum.java:293) ~[na:na]
+	at org.springframework.boot.sql.init.DatabaseInitializationMode.valueOf(DatabaseInitializationMode.java:26) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.sql.init.OnDatabaseInitializationCondition.getDatabaseInitializationMode(OnDatabaseInitializationCondition.java:75) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.sql.init.OnDatabaseInitializationCondition.getMatchOutcome(OnDatabaseInitializationCondition.java:60) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-3.5.6.jar:3.5.6]
+	... 23 common frames omitted
+
+2025-10-06T17:23:11.553+01:00  INFO 13380 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 13380 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-06T17:23:11.556+01:00  INFO 13380 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T17:23:11.907+01:00  INFO 13380 --- [main] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 5 ms.
+2025-10-06T17:23:12.255+01:00  INFO 13380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T17:23:12.511+01:00  INFO 13380 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70f822e
+2025-10-06T17:23:12.513+01:00  INFO 13380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-06T17:23:12.526+01:00  INFO 13380 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2025-10-06T17:23:12.565+01:00  INFO 13380 --- [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2025-10-06T17:23:12.623+01:00  INFO 13380 --- [main] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2025-10-06T17:23:12.627+01:00  INFO 13380 --- [main] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2025-10-06T17:23:12.779+01:00  INFO 13380 --- [main] com.slib.MyApplication                   : Started MyApplication in 1.756 seconds (process running for 2.598)
+2025-10-06T17:23:18.390+01:00  INFO 13380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-06T17:23:18.394+01:00  INFO 13380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
