@@ -24,13 +24,8 @@ public class RetryConfig {
                 retryLimit,
                 Collections.singletonMap(Exception.class, true)
         );
-
-        // 2. Define the Backoff Policy (the delay between retries)
-        // Here, we use a fixed delay based on the injected property
         FixedBackOffPolicy backOffPolicy = new FixedBackOffPolicy();
-        backOffPolicy.setBackOffPeriod(backoffDelay); // Set the delay in milliseconds
-
-        // 3. Assemble the RetryTemplate
+        backOffPolicy.setBackOffPeriod(backoffDelay);
         RetryTemplate retryTemplate = new RetryTemplate();
         retryTemplate.setRetryPolicy(retryPolicy);
         retryTemplate.setBackOffPolicy(backOffPolicy);

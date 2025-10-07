@@ -16,13 +16,12 @@ public class DailyJobScheduler {
     @Autowired
     private Job dailyBatchJob;
 
-    // Cron expression for "at the start of every hour"
-    @Scheduled(cron = "0 0 * * * ?")
+    @Scheduled(cron = "${batch.job.schedule.cron}")
     public void runDailyJob() throws Exception {
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("timestamp", System.currentTimeMillis())
                 .toJobParameters();
-        System.out.println("Launching Spring Batch Job: dailyBatchJob at " + new java.util.Date());
+        System.out.println("Launching Spring Batch Job 1: dailyBatchJob at " + new java.util.Date());
         jobLauncher.run(dailyBatchJob, jobParameters);
     }
 }
