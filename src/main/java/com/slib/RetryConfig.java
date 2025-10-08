@@ -29,7 +29,6 @@ public class RetryConfig {
         RetryTemplate retryTemplate = new RetryTemplate();
         retryTemplate.setRetryPolicy(retryPolicy);
         retryTemplate.setBackOffPolicy(backOffPolicy);
-
         return retryTemplate;
     }
 }

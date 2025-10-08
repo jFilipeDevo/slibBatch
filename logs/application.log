@@ -7708,7 +7708,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "ds_portfolio" doe
 2025-10-07T18:25:00.567+01:00  INFO 4624 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
 2025-10-07T18:25:00.583+01:00 ERROR 4624 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step migrationStep in job dbMigrationJob
 
-org.springframework.dao.EmptyResultDataAccessException: Item 0 of 1 did not update any rows: [com.slib.MigrationBatchConfig$DataRecord@6c45bc48]
+org.springframework.dao.EmptyResultDataAccessException: Item 0 of 1 did not update any rows: [com.slib.bd.DatabaseBatchJobConfig$DataRecord@6c45bc48]
 	at org.springframework.batch.item.database.JdbcBatchItemWriter.write(JdbcBatchItemWriter.java:201) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
 	at org.springframework.batch.core.step.item.SimpleChunkProcessor.writeItems(SimpleChunkProcessor.java:203) ~[spring-batch-core-5.2.3.jar:5.2.3]
 	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doWrite(SimpleChunkProcessor.java:170) ~[spring-batch-core-5.2.3.jar:5.2.3]
@@ -7825,7 +7825,7 @@ Caused by: java.lang.IllegalStateException: Encountered invalid @Scheduled metho
 2025-10-07T18:29:00.728+01:00  INFO 17176 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
 2025-10-07T18:29:00.746+01:00 ERROR 17176 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step migrationStep in job dbMigrationJob
 
-org.springframework.dao.EmptyResultDataAccessException: Item 0 of 1 did not update any rows: [com.slib.MigrationBatchConfig$DataRecord@3451f8eb]
+org.springframework.dao.EmptyResultDataAccessException: Item 0 of 1 did not update any rows: [com.slib.bd.DatabaseBatchJobConfig$DataRecord@3451f8eb]
 	at org.springframework.batch.item.database.JdbcBatchItemWriter.write(JdbcBatchItemWriter.java:201) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
 	at org.springframework.batch.core.step.item.SimpleChunkProcessor.writeItems(SimpleChunkProcessor.java:203) ~[spring-batch-core-5.2.3.jar:5.2.3]
 	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doWrite(SimpleChunkProcessor.java:170) ~[spring-batch-core-5.2.3.jar:5.2.3]
@@ -8135,7 +8135,7 @@ Update your application's configuration
 2025-10-07T19:05:05.615+01:00  INFO 20012 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
 2025-10-07T19:05:05.648+01:00 ERROR 20012 --- [http-nio-8080-exec-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step migrationStep in job dbMigrationJob
 
-org.springframework.dao.EmptyResultDataAccessException: Item 0 of 1 did not update any rows: [com.slib.MigrationBatchConfig$DataRecord@6c1d83ec]
+org.springframework.dao.EmptyResultDataAccessException: Item 0 of 1 did not update any rows: [com.slib.bd.DatabaseBatchJobConfig$DataRecord@6c1d83ec]
 	at org.springframework.batch.item.database.JdbcBatchItemWriter.write(JdbcBatchItemWriter.java:201) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
 	at org.springframework.batch.core.step.item.SimpleChunkProcessor.writeItems(SimpleChunkProcessor.java:203) ~[spring-batch-core-5.2.3.jar:5.2.3]
 	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doWrite(SimpleChunkProcessor.java:170) ~[spring-batch-core-5.2.3.jar:5.2.3]
@@ -8211,3 +8211,493 @@ org.springframework.dao.EmptyResultDataAccessException: Item 0 of 1 did not upda
 
 2025-10-07T19:05:05.660+01:00  INFO 20012 --- [http-nio-8080-exec-1] o.s.batch.core.step.AbstractStep         : Step: [migrationStep] executed in 952ms
 2025-10-07T19:05:05.677+01:00  INFO 20012 --- [http-nio-8080-exec-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=dbMigrationJob]] completed with the following parameters: [{'Source':'{value=Manual_Client_Override, type=class java.lang.String, identifying=true}','ManualTriggerTime':'{value=1759860304573, type=class java.lang.String, identifying=true}'}] and the following status: [FAILED] in 1s0ms
+2025-10-08T17:20:32.808+01:00  INFO 21452 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 21452 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:20:32.812+01:00  INFO 21452 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:20:33.724+01:00  WARN 21452 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'writer' defined in class path resource [com/slib/json/JSONBatchJobConfig.class]: Cannot register bean definition [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=JSONBatchJobConfig; factoryMethodName=writer; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/slib/json/JSONBatchJobConfig.class]] for bean 'writer' since there is already [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=databaseBatchJobConfig; factoryMethodName=writer; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]] bound.
+2025-10-08T17:20:33.736+01:00  INFO 21452 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-08T17:20:33.767+01:00 ERROR 21452 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'writer', defined in class path resource [com/slib/json/JSONBatchJobConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/slib/bd/DatabaseBatchJobConfig.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2025-10-08T17:22:55.069+01:00  INFO 11892 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 11892 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:22:55.073+01:00  INFO 11892 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:22:55.977+01:00  WARN 11892 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'migrationStep' defined in class path resource [com/slib/json/JSONBatchJobConfig.class]: Cannot register bean definition [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=JSONBatchJobConfig; factoryMethodName=migrationStep; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/slib/json/JSONBatchJobConfig.class]] for bean 'migrationStep' since there is already [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=databaseBatchJobConfig; factoryMethodName=migrationStep; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]] bound.
+2025-10-08T17:22:55.991+01:00  INFO 11892 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-08T17:22:56.032+01:00 ERROR 11892 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'migrationStep', defined in class path resource [com/slib/json/JSONBatchJobConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/slib/bd/DatabaseBatchJobConfig.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2025-10-08T17:23:32.187+01:00  INFO 20920 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 20920 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:23:32.192+01:00  INFO 20920 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:23:34.575+01:00  INFO 20920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:23:34.597+01:00  INFO 20920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:23:34.598+01:00  INFO 20920 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:23:34.685+01:00  INFO 20920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:23:34.686+01:00  INFO 20920 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2350 ms
+2025-10-08T17:23:34.979+01:00  INFO 20920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:23:35.351+01:00  INFO 20920 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:23:35.353+01:00  INFO 20920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:23:35.623+01:00  WARN 20920 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyJobScheduler': Unsatisfied dependency expressed through field 'dailyBatchJob': Error creating bean with name 'dailyBatchJob' defined in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]: Unsatisfied dependency expressed through method 'dailyBatchJob' parameter 1: No qualifying bean of type 'org.springframework.batch.core.Step' available: expected single matching bean but found 2: migrationStepDatabase,migrationStepJSON
+2025-10-08T17:23:35.625+01:00  INFO 20920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:23:35.650+01:00  INFO 20920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:23:35.656+01:00  INFO 20920 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-08T17:23:35.680+01:00  INFO 20920 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-08T17:23:35.715+01:00 ERROR 20920 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method dailyBatchJob in com.slib.bd.DatabaseBatchJobConfig required a single bean, but 2 were found:
+	- migrationStepDatabase: defined by method 'migrationStepDatabase' in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]
+	- migrationStepJSON: defined by method 'migrationStepJSON' in class path resource [com/slib/json/JSONBatchJobConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2025-10-08T17:24:39.866+01:00  INFO 14896 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 14896 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:24:39.870+01:00  INFO 14896 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:24:42.066+01:00  INFO 14896 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:24:42.086+01:00  INFO 14896 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:24:42.087+01:00  INFO 14896 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:24:42.184+01:00  INFO 14896 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:24:42.185+01:00  INFO 14896 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2200 ms
+2025-10-08T17:24:42.402+01:00  INFO 14896 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:24:42.719+01:00  INFO 14896 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:24:42.721+01:00  INFO 14896 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:24:42.989+01:00  WARN 14896 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyJobScheduler': Unsatisfied dependency expressed through field 'dailyBatchJob': Error creating bean with name 'dailyBatchJob' defined in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]: Unsatisfied dependency expressed through method 'dailyBatchJob' parameter 1: No qualifying bean of type 'org.springframework.batch.core.Step' available: expected single matching bean but found 2: migrationStepDatabase,migrationStepJSON
+2025-10-08T17:24:42.990+01:00  INFO 14896 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:24:43.015+01:00  INFO 14896 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:24:43.020+01:00  INFO 14896 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-08T17:24:43.044+01:00  INFO 14896 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-08T17:24:43.082+01:00 ERROR 14896 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method dailyBatchJob in com.slib.bd.DatabaseBatchJobConfig required a single bean, but 2 were found:
+	- migrationStepDatabase: defined by method 'migrationStepDatabase' in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]
+	- migrationStepJSON: defined by method 'migrationStepJSON' in class path resource [com/slib/json/JSONBatchJobConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2025-10-08T17:26:28.192+01:00  INFO 11296 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 11296 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:26:28.196+01:00  INFO 11296 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:26:30.385+01:00  INFO 11296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:26:30.408+01:00  INFO 11296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:26:30.409+01:00  INFO 11296 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:26:30.488+01:00  INFO 11296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:26:30.488+01:00  INFO 11296 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2172 ms
+2025-10-08T17:26:30.701+01:00  INFO 11296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:26:30.999+01:00  INFO 11296 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:26:31.002+01:00  INFO 11296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:26:31.210+01:00  WARN 11296 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyJobScheduler': Unsatisfied dependency expressed through field 'dailyBatchJob': Error creating bean with name 'dailyBatchJob' defined in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]: Unsatisfied dependency expressed through method 'dailyBatchJob' parameter 1: No qualifying bean of type 'org.springframework.batch.core.Step' available: expected single matching bean but found 2: migrationStepDatabase,migrationStepJSON
+2025-10-08T17:26:31.211+01:00  INFO 11296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:26:31.229+01:00  INFO 11296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:26:31.235+01:00  INFO 11296 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-08T17:26:31.253+01:00  INFO 11296 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-08T17:26:31.278+01:00 ERROR 11296 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method dailyBatchJob in com.slib.bd.DatabaseBatchJobConfig required a single bean, but 2 were found:
+	- migrationStepDatabase: defined by method 'migrationStepDatabase' in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]
+	- migrationStepJSON: defined by method 'migrationStepJSON' in class path resource [com/slib/json/JSONBatchJobConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2025-10-08T17:30:58.306+01:00  INFO 24232 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 24232 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:30:58.310+01:00  INFO 24232 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:31:01.331+01:00  INFO 24232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:31:01.352+01:00  INFO 24232 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:31:01.352+01:00  INFO 24232 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:31:01.452+01:00  INFO 24232 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:31:01.452+01:00  INFO 24232 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3007 ms
+2025-10-08T17:31:01.810+01:00  INFO 24232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:31:02.221+01:00  INFO 24232 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:31:02.223+01:00  INFO 24232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:31:02.501+01:00  WARN 24232 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyJobScheduler': Unsatisfied dependency expressed through field 'dailyBatchJob': Error creating bean with name 'dailyBatchJob' defined in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]: Unsatisfied dependency expressed through method 'dailyBatchJob' parameter 1: No qualifying bean of type 'org.springframework.batch.core.Step' available: expected single matching bean but found 2: migrationStepDatabase,migrationStepJSON
+2025-10-08T17:31:02.503+01:00  INFO 24232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:31:02.526+01:00  INFO 24232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:31:02.534+01:00  INFO 24232 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-08T17:31:02.570+01:00  INFO 24232 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-08T17:31:02.626+01:00 ERROR 24232 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method dailyBatchJob in com.slib.bd.DatabaseBatchJobConfig required a single bean, but 2 were found:
+	- migrationStepDatabase: defined by method 'migrationStepDatabase' in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]
+	- migrationStepJSON: defined by method 'migrationStepJSON' in class path resource [com/slib/json/JSONBatchJobConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2025-10-08T17:33:29.831+01:00  INFO 23124 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 23124 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:33:29.835+01:00  INFO 23124 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:33:32.117+01:00  INFO 23124 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:33:32.145+01:00  INFO 23124 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:33:32.146+01:00  INFO 23124 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:33:32.262+01:00  INFO 23124 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:33:32.263+01:00  INFO 23124 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2295 ms
+2025-10-08T17:33:32.528+01:00  INFO 23124 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:33:32.818+01:00  INFO 23124 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:33:32.820+01:00  INFO 23124 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:33:33.132+01:00  WARN 23124 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyJobScheduler': Unsatisfied dependency expressed through field 'dailyBatchJobJSON': Error creating bean with name 'dailyBatchJobJSON' defined in class path resource [com/slib/json/JSONBatchJobConfig.class]: Unsatisfied dependency expressed through method 'dailyBatchJobJSON' parameter 1: No qualifying bean of type 'org.springframework.batch.core.Step' available: expected single matching bean but found 2: migrationStepDatabase,migrationStepJSON
+2025-10-08T17:33:33.134+01:00  INFO 23124 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:33:33.142+01:00  INFO 23124 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:33:33.146+01:00  INFO 23124 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-08T17:33:33.172+01:00  INFO 23124 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-08T17:33:33.227+01:00 ERROR 23124 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method dailyBatchJobJSON in com.slib.json.JSONBatchJobConfig required a single bean, but 2 were found:
+	- migrationStepDatabase: defined by method 'migrationStepDatabase' in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]
+	- migrationStepJSON: defined by method 'migrationStepJSON' in class path resource [com/slib/json/JSONBatchJobConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2025-10-08T17:34:01.213+01:00  INFO 7004 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 7004 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:34:01.219+01:00  INFO 7004 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:34:03.886+01:00  INFO 7004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:34:03.911+01:00  INFO 7004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:34:03.912+01:00  INFO 7004 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:34:04.023+01:00  INFO 7004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:34:04.024+01:00  INFO 7004 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2656 ms
+2025-10-08T17:34:04.321+01:00  INFO 7004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:34:04.833+01:00  INFO 7004 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:34:04.836+01:00  INFO 7004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:34:05.305+01:00  WARN 7004 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'manualJobController' defined in file [C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes\com\slib\ManualJobController.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.springframework.batch.core.Job' available: expected single matching bean but found 2: dailyBatchJob,dailyBatchJobJSON
+2025-10-08T17:34:05.309+01:00  WARN 7004 --- [main] o.s.b.f.support.DisposableBeanAdapter    : Custom destroy method 'close' on bean with name 'readerJSON' propagated an exception: org.springframework.batch.item.ItemStreamException: Error while closing item reader
+2025-10-08T17:34:05.311+01:00  INFO 7004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:34:05.317+01:00  INFO 7004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:34:05.322+01:00  INFO 7004 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-08T17:34:05.347+01:00  INFO 7004 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-08T17:34:05.412+01:00 ERROR 7004 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.slib.ManualJobController required a single bean, but 2 were found:
+	- dailyBatchJob: defined by method 'dailyBatchJob' in class path resource [com/slib/bd/DatabaseBatchJobConfig.class]
+	- dailyBatchJobJSON: defined by method 'dailyBatchJobJSON' in class path resource [com/slib/json/JSONBatchJobConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2025-10-08T17:34:59.715+01:00  INFO 10156 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 10156 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:34:59.719+01:00  INFO 10156 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:35:02.351+01:00  INFO 10156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:35:02.377+01:00  INFO 10156 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:35:02.377+01:00  INFO 10156 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:35:02.486+01:00  INFO 10156 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:35:02.487+01:00  INFO 10156 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2623 ms
+2025-10-08T17:35:02.770+01:00  INFO 10156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:35:03.111+01:00  INFO 10156 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:35:03.114+01:00  INFO 10156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:35:04.670+01:00  INFO 10156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-08T17:35:04.718+01:00  INFO 10156 --- [main] com.slib.MyApplication                   : Started MyApplication in 6.096 seconds (process running for 7.055)
+2025-10-08T17:35:42.699+01:00  INFO 10156 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-08T17:35:42.714+01:00  INFO 10156 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-08T17:35:42.723+01:00  WARN 10156 --- [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Custom destroy method 'close' on bean with name 'readerJSON' propagated an exception: org.springframework.batch.item.ItemStreamException: Error while closing item reader
+2025-10-08T17:35:42.725+01:00  INFO 10156 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:35:42.729+01:00  INFO 10156 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:35:50.277+01:00  INFO 19976 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 19976 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:35:50.285+01:00  INFO 19976 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:35:53.213+01:00  INFO 19976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:35:53.239+01:00  INFO 19976 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:35:53.240+01:00  INFO 19976 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:35:53.378+01:00  INFO 19976 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:35:53.379+01:00  INFO 19976 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2909 ms
+2025-10-08T17:35:53.618+01:00  INFO 19976 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:35:53.997+01:00  INFO 19976 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:35:53.999+01:00  INFO 19976 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:35:55.302+01:00  INFO 19976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-08T17:35:55.329+01:00  INFO 19976 --- [main] com.slib.MyApplication                   : Started MyApplication in 6.315 seconds (process running for 7.396)
+2025-10-08T17:38:18.909+01:00  INFO 19976 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-08T17:38:18.910+01:00  INFO 19976 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-08T17:38:18.912+01:00  INFO 19976 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-08T17:38:19.038+01:00  INFO 19976 --- [http-nio-8080-exec-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=migrationJobJSON]] launched with the following parameters: [{'Source':'{value=Manual_Client_Override, type=class java.lang.String, identifying=true}','ManualTriggerTime':'{value=1759941498960, type=class java.lang.String, identifying=true}'}]
+2025-10-08T17:38:19.092+01:00  INFO 19976 --- [http-nio-8080-exec-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [migrationStepJSON]
+2025-10-08T17:38:19.102+01:00 ERROR 19976 --- [http-nio-8080-exec-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step migrationStepJSON in job migrationJobJSON
+
+org.springframework.batch.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:155) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.open(TaskletStep.java:287) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:227) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:153) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:408) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:127) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:307) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:155) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) ~[spring-core-6.2.11.jar:6.2.11]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:146) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at com.slib.ManualJobController.runJobManuallyJSON(ManualJobController.java:56) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.46.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.46.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: java.lang.IllegalStateException: Input resource must exist (reader is in 'strict' mode)
+	at org.springframework.batch.item.json.JsonItemReader.doOpen(JsonItemReader.java:120) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:152) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+	... 59 common frames omitted
+
+2025-10-08T17:38:19.112+01:00  INFO 19976 --- [http-nio-8080-exec-1] o.s.batch.core.step.AbstractStep         : Step: [migrationStepJSON] executed in 19ms
+2025-10-08T17:38:19.119+01:00 ERROR 19976 --- [http-nio-8080-exec-1] o.s.batch.core.step.AbstractStep         : Exception while closing step execution resources in step migrationStepJSON in job migrationJobJSON
+
+org.springframework.batch.item.ItemStreamException: Failed to close 1 delegate(s) due to exceptions
+	at org.springframework.batch.item.support.CompositeItemStream.close(CompositeItemStream.java:123) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.close(TaskletStep.java:282) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:313) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:153) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:408) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:127) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:307) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:155) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) ~[spring-core-6.2.11.jar:6.2.11]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:146) ~[spring-batch-core-5.2.3.jar:5.2.3]
+	at com.slib.ManualJobController.runJobManuallyJSON(ManualJobController.java:56) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.46.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.11.jar:6.2.11]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.46.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.11.jar:6.2.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+	Suppressed: org.springframework.batch.item.ItemStreamException: Error while closing item reader
+		at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.close(AbstractItemCountingItemStreamItemReader.java:144) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+		at org.springframework.batch.item.support.CompositeItemStream.close(CompositeItemStream.java:114) ~[spring-batch-infrastructure-5.2.3.jar:5.2.3]
+		... 58 common frames omitted
+	Caused by: java.lang.NullPointerException: Cannot invoke "java.io.InputStream.close()" because "this.inputStream" is null
+		at org.springframework.batch.item.json.JacksonJsonObjectReader.close(JacksonJsonObjectReader.java:98)
+		at org.springframework.batch.item.json.JsonItemReader.doClose(JsonItemReader.java:137)
+		at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.close(AbstractItemCountingItemStreamItemReader.java:141)
+		... 59 common frames omitted
+
+2025-10-08T17:38:19.131+01:00  INFO 19976 --- [http-nio-8080-exec-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=migrationJobJSON]] completed with the following parameters: [{'Source':'{value=Manual_Client_Override, type=class java.lang.String, identifying=true}','ManualTriggerTime':'{value=1759941498960, type=class java.lang.String, identifying=true}'}] and the following status: [FAILED] in 70ms
+2025-10-08T17:40:10.086+01:00  INFO 19976 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-08T17:40:10.100+01:00  INFO 19976 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-08T17:40:10.108+01:00  WARN 19976 --- [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Custom destroy method 'close' on bean with name 'readerJSON' propagated an exception: org.springframework.batch.item.ItemStreamException: Error while closing item reader
+2025-10-08T17:40:10.110+01:00  INFO 19976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:40:10.116+01:00  INFO 19976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:40:15.500+01:00  INFO 2936 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 2936 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\classes started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch)
+2025-10-08T17:40:15.505+01:00  INFO 2936 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T17:40:17.719+01:00  INFO 2936 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-08T17:40:17.741+01:00  INFO 2936 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-08T17:40:17.741+01:00  INFO 2936 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08T17:40:17.842+01:00  INFO 2936 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-08T17:40:17.843+01:00  INFO 2936 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2213 ms
+2025-10-08T17:40:18.058+01:00  INFO 2936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T17:40:18.396+01:00  INFO 2936 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-08T17:40:18.399+01:00  INFO 2936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T17:40:19.511+01:00  INFO 2936 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-08T17:40:19.532+01:00  INFO 2936 --- [main] com.slib.MyApplication                   : Started MyApplication in 4.983 seconds (process running for 5.77)
+2025-10-08T17:40:23.133+01:00  INFO 2936 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-08T17:40:23.133+01:00  INFO 2936 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-08T17:40:23.135+01:00  INFO 2936 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-08T17:40:23.238+01:00  INFO 2936 --- [http-nio-8080-exec-2] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=migrationJobJSON]] launched with the following parameters: [{'Source':'{value=Manual_Client_Override, type=class java.lang.String, identifying=true}','ManualTriggerTime':'{value=1759941623176, type=class java.lang.String, identifying=true}'}]
+2025-10-08T17:40:23.287+01:00  INFO 2936 --- [http-nio-8080-exec-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [migrationStepJSON]
+2025-10-08T17:40:23.434+01:00  INFO 2936 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-10-08T17:40:24.025+01:00  INFO 2936 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@285ce81c
+2025-10-08T17:40:24.025+01:00  INFO 2936 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-10-08T17:40:24.077+01:00  INFO 2936 --- [http-nio-8080-exec-2] o.s.batch.core.step.AbstractStep         : Step: [migrationStepJSON] executed in 790ms
+2025-10-08T17:40:24.088+01:00  INFO 2936 --- [http-nio-8080-exec-2] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=migrationJobJSON]] completed with the following parameters: [{'Source':'{value=Manual_Client_Override, type=class java.lang.String, identifying=true}','ManualTriggerTime':'{value=1759941623176, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 829ms
+2025-10-08T17:40:31.533+01:00  INFO 2936 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-08T17:40:31.547+01:00  INFO 2936 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-08T17:40:31.555+01:00  INFO 2936 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T17:40:31.559+01:00  INFO 2936 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T17:40:31.559+01:00  INFO 2936 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-10-08T17:40:31.565+01:00  INFO 2936 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

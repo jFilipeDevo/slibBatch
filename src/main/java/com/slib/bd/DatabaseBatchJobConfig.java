@@ -1,4 +1,4 @@
-package com.slib;
+package com.slib.bd;
 
 import javax.sql.DataSource;
 import org.springframework.batch.core.Job;
@@ -17,22 +17,21 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-public class MigrationBatchConfig {
-
+public class DatabaseBatchJobConfig {
     private final DataSource sourceDataSource;
     private final DataSource targetDataSource;
-    private final JobRepository jobRepository;
+    private final JobRepository jobDatabaseRepository;
     private final PlatformTransactionManager transactionManager;
 
     // Inject the named DataSources
-    public MigrationBatchConfig(
+    public DatabaseBatchJobConfig(
             @Qualifier("sourceDataSource") DataSource sourceDataSource,
             @Qualifier("targetDataSource") DataSource targetDataSource,
-            JobRepository jobRepository,
+            JobRepository jobDatabaseRepository,
             PlatformTransactionManager transactionManager) {
         this.sourceDataSource = sourceDataSource;
         this.targetDataSource = targetDataSource;
-        this.jobRepository = jobRepository;
+        this.jobDatabaseRepository = jobDatabaseRepository;
         this.transactionManager = transactionManager;
     }
 
@@ -61,40 +60,32 @@ public class MigrationBatchConfig {
     }
 
     @Bean
-    public JdbcCursorItemReader<DataRecord> reader(@Qualifier("sourceDataSource") DataSource sourceDataSource) {
-        return new JdbcCursorItemReaderBuilder<DataRecord>()
-                .dataSource(sourceDataSource)
-                .name("jdbcReader")
+    public JdbcCursorItemReader<DataRecord> readerDatabase(@Qualifier("sourceDataSource") DataSource sourceDataSource) {
+        return new JdbcCursorItemReaderBuilder<DataRecord>().dataSource(sourceDataSource).name("jdbcReader")
                 .sql("SELECT id, name FROM ds_portfolio")
-                .rowMapper(new BeanPropertyRowMapper<>(DataRecord.class))
-                .build();
+                .rowMapper(new BeanPropertyRowMapper<>(DataRecord.class)).build();
     }
 
     @Bean
-    public JdbcBatchItemWriter<DataRecord> writer(@Qualifier("targetDataSource") DataSource targetDataSource) {
-        return new JdbcBatchItemWriterBuilder<DataRecord>()
-                .dataSource(targetDataSource)
+    public JdbcBatchItemWriter<DataRecord> writerDatabase(@Qualifier("targetDataSource") DataSource targetDataSource) {
+        return new JdbcBatchItemWriterBuilder<DataRecord>().dataSource(targetDataSource)
                 .sql("INSERT INTO ds_portfolio_new (id, name) VALUES (:id, :name) ON CONFLICT (id) DO NOTHING")
-                .beanMapped()
-                .build();
+                .beanMapped().build();
     }
 
     @Bean
-    public Step migrationStep(JobRepository jobRepository, 
+    public Step migrationStepDatabase(JobRepository jobDatabaseRepository,
                                PlatformTransactionManager transactionManager,
-                               JdbcCursorItemReader<DataRecord> reader,
-                               JdbcBatchItemWriter<DataRecord> writer) {
-        return new StepBuilder("migrationStep", jobRepository)
+                               JdbcCursorItemReader<DataRecord> readerDatabase,
+                               JdbcBatchItemWriter<DataRecord> writerDatabase) {
+        return new StepBuilder("migrationStepDatabase", jobDatabaseRepository)
                 .<DataRecord, DataRecord>chunk(50, transactionManager)
-                .reader(reader)
-                .writer(writer)
-                .build();
+                .reader(readerDatabase).writer(writerDatabase).build();
     }
 
     @Bean
-    public Job dailyBatchJob(JobRepository jobRepository, Step migrationStep) {
-        return new JobBuilder("dbMigrationJob", jobRepository)
-                .start(migrationStep)
-                .build();
+    public Job dailyBatchJob(JobRepository jobDatabaseRepository,
+                             @Qualifier("migrationStepDatabase") Step migrationStepDatabase) {
+        return new JobBuilder("migrationJobDatabase", jobDatabaseRepository).start(migrationStepDatabase).build();
     }
 }
