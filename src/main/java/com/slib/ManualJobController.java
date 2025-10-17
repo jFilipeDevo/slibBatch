@@ -18,15 +18,15 @@ public class ManualJobController {
     private static final Logger log = LoggerFactory.getLogger(ManualJobController.class);
 
     private final JobLauncher jobLauncher;
-    private final Job dailyBatchJob;
-    private final Job dailyBatchJobJSON;
+    private final Job dailyDatabaseJob;
+    private final Job dailyJSONJob;
 
     public ManualJobController(JobLauncher jobLauncher,
-                               @Qualifier("dailyBatchJob") Job dailyBatchJob,
-                               @Qualifier("dailyBatchJobJSON") Job dailyBatchJobJSON) {
+                               @Qualifier("dailyDatabaseJob") Job dailyDatabaseJob,
+                               @Qualifier("dailyJSONJob") Job dailyJSONJob) {
         this.jobLauncher = jobLauncher;
-        this.dailyBatchJob = dailyBatchJob;
-        this.dailyBatchJobJSON = dailyBatchJobJSON;
+        this.dailyDatabaseJob = dailyDatabaseJob;
+        this.dailyJSONJob = dailyJSONJob;
     }
 
     /**
@@ -39,7 +39,7 @@ public class ManualJobController {
                 .addString("ManualTriggerTime", String.valueOf(System.currentTimeMillis()))
                 .addString("Source", "Manual_Client_Override").toJobParameters();
         try {
-            jobLauncher.run(dailyBatchJob, params);
+            jobLauncher.run(dailyDatabaseJob, params);
             return ResponseEntity.ok("Job launched successfully!");
         } catch (Exception e) {
             log.error("Failed to launch job manually: {}", e.getMessage());
@@ -53,7 +53,7 @@ public class ManualJobController {
                 .addString("ManualTriggerTime", String.valueOf(System.currentTimeMillis()))
                 .addString("Source", "Manual_Client_Override").toJobParameters();
         try {
-            jobLauncher.run(dailyBatchJobJSON, params);
+            jobLauncher.run(dailyJSONJob, params);
             return ResponseEntity.ok("Job launched successfully!");
         } catch (Exception e) {
             log.error("Failed to launch job manually: {}", e.getMessage());

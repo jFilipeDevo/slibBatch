@@ -17,16 +17,18 @@ public class DailyJobScheduler {
     @Autowired
     private JobLauncher jobLauncher;
     @Autowired
-    private Job dailyBatchJob;
+    private Job dailyDatabaseJob;
     @Autowired
-    private Job dailyBatchJobJSON;
+    private Job dailyJSONJob;
+
+
 
     @Scheduled(cron = "${batch.job.cron.bd}")
     public void runDailyJobDatabase() throws Exception {
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
         log.info("Launching database job at {}", new java.util.Date());
-        jobLauncher.run(dailyBatchJob, jobParameters);
+        jobLauncher.run(dailyDatabaseJob, jobParameters);
     }
 
     @Scheduled(cron = "${batch.job.cron.json}")
@@ -34,6 +36,6 @@ public class DailyJobScheduler {
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
         log.info("Launching JSON job at {}", new java.util.Date());
-        jobLauncher.run(dailyBatchJobJSON, jobParameters);
+        jobLauncher.run(dailyJSONJob, jobParameters);
     }
 }
