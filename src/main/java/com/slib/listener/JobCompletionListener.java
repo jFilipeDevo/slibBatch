@@ -20,6 +20,7 @@ public class JobCompletionListener implements JobExecutionListener {
     @Value("${batch.job.json.failure.dir}")
     private String failureDir;
     private final Resource inputResource;
+    private boolean fileMover = false;
 
     public JobCompletionListener(@Value("${batch.job.json.file}") Resource inputResource) {
         this.inputResource = inputResource;
@@ -40,7 +41,9 @@ public class JobCompletionListener implements JobExecutionListener {
                         jobExecution.getStatus(), jobExecution.getStepExecutions().stream()
                                 .mapToInt(e -> Math.toIntExact(e.getWriteCount()))
                                 .sum());
-                FileMover.move(inputResource, successDir);
+                if (fileMover) {
+                    FileMover.move(inputResource, successDir);
+                }
                 log.info("Json file moved successfully to: {}", successDir);
             } else if (status.isUnsuccessful()) {
                 log.error("Job {} ended with error. Status: {}. Total written records: {}",
@@ -48,12 +51,18 @@ public class JobCompletionListener implements JobExecutionListener {
                         jobExecution.getStatus(), jobExecution.getStepExecutions().stream()
                                 .mapToInt(e -> Math.toIntExact(e.getWriteCount()))
                                 .sum());
-                FileMover.move(inputResource, failureDir);
+                if (fileMover) {
+                    FileMover.move(inputResource, failureDir);
+                }
                 log.error("Job Fail! Json file moved successfully to: {}", failureDir);
             }
         } catch (IOException e) {
             log.error("Cannot move json to archive directory: {}. Trace: {}",
                     inputResource.getFilename(), e.getMessage(), e);
         }
+    }
+
+    public void setFileMover(boolean fileMover) {
+        this.fileMover = fileMover;
     }
 }

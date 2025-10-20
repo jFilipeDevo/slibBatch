@@ -28,6 +28,7 @@ public class JSONBatchJobConfig {
 
     public JSONBatchJobConfig(JobCompletionListener jobCompletionListener) {
         this.jobCompletionListener = jobCompletionListener;
+        jobCompletionListener.setFileMover(true);
     }
 
     @Bean
