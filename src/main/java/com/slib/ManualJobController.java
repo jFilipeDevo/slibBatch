@@ -20,13 +20,22 @@ public class ManualJobController {
     private final JobLauncher jobLauncher;
     private final Job dailyDatabaseJob;
     private final Job dailyJSONJob;
+    private final Job dailyJobDBTBronze;
+    private final Job dailyJobDBTSilver;
+    private final Job dailyJobDBTGold;
 
     public ManualJobController(JobLauncher jobLauncher,
                                @Qualifier("dailyDatabaseJob") Job dailyDatabaseJob,
-                               @Qualifier("dailyJSONJob") Job dailyJSONJob) {
+                               @Qualifier("dailyJSONJob") Job dailyJSONJob,
+                               @Qualifier("dailyJobDBTBronze") Job dailyJobDBTBronze,
+                               @Qualifier("dailyJobDBTSilver") Job dailyJobDBTSilver,
+                               @Qualifier("dailyJobDBTGold") Job dailyJobDBTGold) {
         this.jobLauncher = jobLauncher;
         this.dailyDatabaseJob = dailyDatabaseJob;
         this.dailyJSONJob = dailyJSONJob;
+        this.dailyJobDBTBronze = dailyJobDBTBronze;
+        this.dailyJobDBTSilver = dailyJobDBTSilver;
+        this.dailyJobDBTGold = dailyJobDBTGold;
     }
 
     /**
@@ -54,6 +63,48 @@ public class ManualJobController {
                 .addString("Source", "Manual_Client_Override").toJobParameters();
         try {
             jobLauncher.run(dailyJSONJob, params);
+            return ResponseEntity.ok("Job launched successfully!");
+        } catch (Exception e) {
+            log.error("Failed to launch job manually: {}", e.getMessage());
+            return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/runJobDBTBronze")
+    public ResponseEntity<String> runJobDBTBronze() {
+        JobParameters params = new JobParametersBuilder()
+                .addString("ManualTriggerTime", String.valueOf(System.currentTimeMillis()))
+                .addString("Source", "Manual_Client_Override").toJobParameters();
+        try {
+            jobLauncher.run(dailyJobDBTBronze, params);
+            return ResponseEntity.ok("Job launched successfully!");
+        } catch (Exception e) {
+            log.error("Failed to launch job manually: {}", e.getMessage());
+            return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/runJobDBTSilver")
+    public ResponseEntity<String> runJobDBTSilver() {
+        JobParameters params = new JobParametersBuilder()
+                .addString("ManualTriggerTime", String.valueOf(System.currentTimeMillis()))
+                .addString("Source", "Manual_Client_Override").toJobParameters();
+        try {
+            jobLauncher.run(dailyJobDBTSilver, params);
+            return ResponseEntity.ok("Job launched successfully!");
+        } catch (Exception e) {
+            log.error("Failed to launch job manually: {}", e.getMessage());
+            return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/runJobDBTGold")
+    public ResponseEntity<String> runJobDBTGold() {
+        JobParameters params = new JobParametersBuilder()
+                .addString("ManualTriggerTime", String.valueOf(System.currentTimeMillis()))
+                .addString("Source", "Manual_Client_Override").toJobParameters();
+        try {
+            jobLauncher.run(dailyJobDBTGold, params);
             return ResponseEntity.ok("Job launched successfully!");
         } catch (Exception e) {
             log.error("Failed to launch job manually: {}", e.getMessage());

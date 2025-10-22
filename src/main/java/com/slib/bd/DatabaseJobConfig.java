@@ -2,6 +2,7 @@ package com.slib.bd;
 
 import javax.sql.DataSource;
 
+import com.slib.CustomFixedBackOffPolicy;
 import com.slib.bd.entity.DsAccountDTO;
 import com.slib.bd.entity.DsPortfolioDTO;
 import com.slib.listener.ChunkLoggingListener;
@@ -16,6 +17,7 @@ import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
 import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -26,16 +28,18 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @Configuration
-public class DatabaseBatchJobConfig {
+public class DatabaseJobConfig {
     private static final int CHUNK_SIZE = 50;
     private final DataSource sourceDataSource;
     private final DataSource targetDataSource;
     private final JobRepository jobDatabaseRepository;
     private final PlatformTransactionManager transactionManager;
     private final JobCompletionListener jobCompletionListener;
+    @Value("${batch.processing.retry-limit}")
+    private int retryLimit;
 
     // Restoring explicit injection via constructor
-    public DatabaseBatchJobConfig(
+    public DatabaseJobConfig(
             @Qualifier("sourceDataSource") DataSource sourceDataSource,
             @Qualifier("targetDataSource") DataSource targetDataSource,
             JobRepository jobDatabaseRepository,
@@ -51,9 +55,8 @@ public class DatabaseBatchJobConfig {
     @Bean
     public JdbcBatchItemWriter<DsPortfolioDTO> writerDsPortfolio() {
         String[] sql = generateSql(DsPortfolioDTO.class, "ds_portfolio");
-        String insertSql = sql[1];
         return new JdbcBatchItemWriterBuilder<DsPortfolioDTO>().dataSource(targetDataSource)
-                .sql(insertSql).beanMapped().build();
+                .sql(sql[1]).beanMapped().assertUpdates(false).build();
     }
 
     @Bean
@@ -65,20 +68,22 @@ public class DatabaseBatchJobConfig {
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsPortfolioDTO.class)).build();
         return new StepBuilder("ds_portfolioStep", jobDatabaseRepository)
                 .<DsPortfolioDTO, DsPortfolioDTO>chunk(CHUNK_SIZE, transactionManager)
+                .faultTolerant().retryLimit(retryLimit)
+                .backOffPolicy(new CustomFixedBackOffPolicy()).retry(Exception.class)
                 .listener(new ChunkLoggingListener(CHUNK_SIZE))
                 .reader(reader).writer(writerDsPortfolio).build();
     }
 
     @Bean
-    public JdbcBatchItemWriter<DsAccountDTO> writerAccountDatabase() {
+    public JdbcBatchItemWriter<DsAccountDTO> writerDsAccountDatabase() {
         String[] sql = generateSql(DsAccountDTO.class, "ds_account");
         String insertSql = sql[1];
         return new JdbcBatchItemWriterBuilder<DsAccountDTO>().dataSource(targetDataSource)
-                .sql(insertSql).beanMapped().build();
+                .sql(insertSql).beanMapped().assertUpdates(false).build();
     }
 
     @Bean
-    public Step dsAccountStep(JdbcBatchItemWriter<DsAccountDTO> writerAccountDatabase) {
+    public Step dsAccountStep(JdbcBatchItemWriter<DsAccountDTO> writerDsAccountDatabase) {
         String[] sql = generateSql(DsAccountDTO.class, "ds_account");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsAccountDTO> reader = new JdbcCursorItemReaderBuilder<DsAccountDTO>()
@@ -86,8 +91,10 @@ public class DatabaseBatchJobConfig {
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsAccountDTO.class)).build();
         return new StepBuilder("ds_accountStep", jobDatabaseRepository)
                 .<DsAccountDTO, DsAccountDTO>chunk(CHUNK_SIZE, transactionManager)
+                .faultTolerant().retryLimit(retryLimit)
+                .backOffPolicy(new CustomFixedBackOffPolicy()).retry(Exception.class)
                 .listener(new ChunkLoggingListener(CHUNK_SIZE))
-                .reader(reader).writer(writerAccountDatabase).build();
+                .reader(reader).writer(writerDsAccountDatabase).build();
     }
 
     @Bean
@@ -95,9 +102,7 @@ public class DatabaseBatchJobConfig {
                              @Qualifier("dsPortfolioStep") Step dsPortfolioStep,
                                 @Qualifier("dsAccountStep") Step dsAccountStep) {
         return new JobBuilder("migrationJobDatabase", jobDatabaseRepository)
-                .listener(jobCompletionListener)
-                .start(dsPortfolioStep)
-                .next(dsAccountStep).build();
+                .listener(jobCompletionListener).start(dsPortfolioStep).next(dsAccountStep).build();
     }
 
     private <T> String[] generateSql(Class<T> dtoClass, String schemaAndTableName) {

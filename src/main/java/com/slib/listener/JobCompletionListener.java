@@ -20,6 +20,7 @@ public class JobCompletionListener implements JobExecutionListener {
     @Value("${batch.job.json.failure.dir}")
     private String failureDir;
     private final Resource inputResource;
+    private ChunkLoggingListener chunkLoggingListener;
     private boolean fileMover = false;
 
     public JobCompletionListener(@Value("${batch.job.json.file}") Resource inputResource) {
@@ -35,6 +36,7 @@ public class JobCompletionListener implements JobExecutionListener {
     public void afterJob(JobExecution jobExecution) {
         try {
             BatchStatus status = jobExecution.getStatus();
+            chunkLoggingListener.setCount(0);
             if (status == BatchStatus.COMPLETED) {
                 log.info("Job {} ended successfully. Status: {}. Total written records: {}",
                         jobExecution.getJobInstance().getJobName(),
@@ -43,8 +45,8 @@ public class JobCompletionListener implements JobExecutionListener {
                                 .sum());
                 if (fileMover) {
                     FileMover.move(inputResource, successDir);
+                    log.info("Json file moved successfully to: {}", successDir);
                 }
-                log.info("Json file moved successfully to: {}", successDir);
             } else if (status.isUnsuccessful()) {
                 log.error("Job {} ended with error. Status: {}. Total written records: {}",
                         jobExecution.getJobInstance().getJobName(),
@@ -53,8 +55,8 @@ public class JobCompletionListener implements JobExecutionListener {
                                 .sum());
                 if (fileMover) {
                     FileMover.move(inputResource, failureDir);
+                    log.error("Job Fail! Json file moved successfully to: {}", failureDir);
                 }
-                log.error("Job Fail! Json file moved successfully to: {}", failureDir);
             }
         } catch (IOException e) {
             log.error("Cannot move json to archive directory: {}. Trace: {}",
@@ -64,5 +66,13 @@ public class JobCompletionListener implements JobExecutionListener {
 
     public void setFileMover(boolean fileMover) {
         this.fileMover = fileMover;
+    }
+
+    public void setChunkLoggingListener(ChunkLoggingListener chunkLoggingListener) {
+        this.chunkLoggingListener = chunkLoggingListener;
+    }
+
+    public ChunkLoggingListener getChunkLoggingListener() {
+        return chunkLoggingListener;
     }
 }

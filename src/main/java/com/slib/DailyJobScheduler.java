@@ -20,6 +20,12 @@ public class DailyJobScheduler {
     private Job dailyDatabaseJob;
     @Autowired
     private Job dailyJSONJob;
+    @Autowired
+    private Job dailyJobDBTBronze;
+    @Autowired
+    private Job dailyJobDBTSilver;
+    @Autowired
+    private Job dailyJobDBTGold;
 
 
 
@@ -37,5 +43,29 @@ public class DailyJobScheduler {
                 .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
         log.info("Launching JSON job at {}", new java.util.Date());
         jobLauncher.run(dailyJSONJob, jobParameters);
+    }
+
+    @Scheduled(cron = "${batch.job.cron.dbt.bronze}")
+    public void runDailyJobDBTBronze() throws Exception {
+        JobParameters jobParameters = new JobParametersBuilder()
+                .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
+        log.info("Launching JSON job at {}", new java.util.Date());
+        jobLauncher.run(dailyJobDBTBronze, jobParameters);
+    }
+
+    @Scheduled(cron = "${batch.job.cron.dbt.silver}")
+    public void runDailyJobDBTSilver() throws Exception {
+        JobParameters jobParameters = new JobParametersBuilder()
+                .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
+        log.info("Launching JSON job at {}", new java.util.Date());
+        jobLauncher.run(dailyJobDBTSilver, jobParameters);
+    }
+
+    @Scheduled(cron = "${batch.job.cron.dbt.gold}")
+    public void runDailyJobDBTGold() throws Exception {
+        JobParameters jobParameters = new JobParametersBuilder()
+                .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
+        log.info("Launching JSON job at {}", new java.util.Date());
+        jobLauncher.run(dailyJobDBTGold, jobParameters);
     }
 }

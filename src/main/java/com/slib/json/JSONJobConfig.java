@@ -1,5 +1,6 @@
 package com.slib.json;
 
+import com.slib.CustomFixedBackOffPolicy;
 import com.slib.listener.ChunkLoggingListener;
 import com.slib.listener.JobCompletionListener;
 import org.springframework.core.io.Resource;
@@ -16,24 +17,30 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.retry.backoff.FixedBackOffPolicy;
 import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-public class JSONBatchJobConfig {
+public class JSONJobConfig {
     private static final int CHUNK_SIZE = 50;
     private final JobCompletionListener jobCompletionListener;
+    private final ChunkLoggingListener chunkLoggingListener;
     @Value("${batch.job.json.file}")
     private Resource inputResource;
+    @Value("${batch.processing.retry-limit}")
+    private int retryLimit;
 
-    public JSONBatchJobConfig(JobCompletionListener jobCompletionListener) {
+    public JSONJobConfig(JobCompletionListener jobCompletionListener) {
         this.jobCompletionListener = jobCompletionListener;
-        jobCompletionListener.setFileMover(true);
+        chunkLoggingListener = new ChunkLoggingListener(CHUNK_SIZE);
+        jobCompletionListener.setChunkLoggingListener(chunkLoggingListener);
+        jobCompletionListener.setFileMover(false);
     }
 
     @Bean
     public JsonItemReader<kpiConfig> readerJSON() {
-        return new JsonItemReader<>(this.inputResource, new JacksonJsonObjectReader<>(kpiConfig.class));
+        return new JsonItemReader<>(inputResource, new JacksonJsonObjectReader<>(kpiConfig.class));
     }
 
     @Bean
@@ -44,7 +51,7 @@ public class JSONBatchJobConfig {
                         "priority,breach_on,evaluation_frequency,created_at_utc)" +
                         " VALUES (:kpiId, :kpiName, :thresholdUpperValue, :thresholdLowerValue," +
                         ":targetFieldWindowValues, :targetFieldWindowUnit, :severity," +
-                        ":priority, :breachOn, :evaluationFrequency, NOW()) 0.")
+                        ":priority, :breachOn, :evaluationFrequency, NOW()) ON CONFLICT (kpi_id) DO NOTHING")
                 .assertUpdates(false).beanMapped().build();
     }
 
@@ -55,7 +62,9 @@ public class JSONBatchJobConfig {
                                JdbcBatchItemWriter<kpiConfig> writerJSON) {
         return new StepBuilder("dailyJSONStep", jobJSONRepository)
                 .<kpiConfig, kpiConfig>chunk(CHUNK_SIZE, transactionManager)
-                .listener(new ChunkLoggingListener(CHUNK_SIZE)).reader(readerJSON).writer(writerJSON).build();
+                .faultTolerant().retryLimit(retryLimit)
+                .backOffPolicy(new CustomFixedBackOffPolicy()).retry(Exception.class)
+                .listener(chunkLoggingListener).reader(readerJSON).writer(writerJSON).build();
 
     }
 
@@ -63,7 +72,7 @@ public class JSONBatchJobConfig {
     public Job dailyJSONJob(JobRepository jobJSONRepository,
                                  @Qualifier("dailyJSONStep") Step migrationStepJSON) {
         return new JobBuilder("dailyJSONJob", jobJSONRepository)
-                //.listener(jobCompletionListener)
+                .listener(jobCompletionListener)
                 .start(migrationStepJSON).build();
     }
 }

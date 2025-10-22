@@ -1,34 +1,24 @@
 package com.slib.bd.entity;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-public class DsAccountDTO {
-    private BigDecimal dsId;
+public class AccountDTO {
+
     private BigDecimal id;
     private String accessCode;
     private String name;
     private BigDecimal idOrigin;
     private Long version;
+    private BigDecimal clientEntityId;
     private String connectorParamId;
     private BigDecimal accountTypeId;
-    private BigDecimal clientEntityId;
     private String uniqueId;
     private String cp;
     private String tp;
     private String type;
     private String account;
-    private LocalDate insertDate;
-    private LocalDateTime insertDateTime;
 
-    public BigDecimal getDsId() {
-        return dsId;
-    }
 
-    public void setDsId(BigDecimal dsId) {
-        this.dsId = dsId;
-    }
 
     public BigDecimal getId() {
         return id;
@@ -70,6 +60,14 @@ public class DsAccountDTO {
         this.version = version;
     }
 
+    public BigDecimal getClientEntityId() {
+        return clientEntityId;
+    }
+
+    public void setClientEntityId(BigDecimal clientEntityId) {
+        this.clientEntityId = clientEntityId;
+    }
+
     public String getConnectorParamId() {
         return connectorParamId;
     }
@@ -84,14 +82,6 @@ public class DsAccountDTO {
 
     public void setAccountTypeId(BigDecimal accountTypeId) {
         this.accountTypeId = accountTypeId;
-    }
-
-    public BigDecimal getClientEntityId() {
-        return clientEntityId;
-    }
-
-    public void setClientEntityId(BigDecimal clientEntityId) {
-        this.clientEntityId = clientEntityId;
     }
 
     public String getUniqueId() {
@@ -132,21 +122,5 @@ public class DsAccountDTO {
 
     public void setAccount(String account) {
         this.account = account;
-    }
-
-    public LocalDate getInsertDate() {
-        return insertDate;
-    }
-
-    public void setInsertDate(LocalDate insertDate) {
-        this.insertDate = insertDate;
-    }
-
-    public LocalDateTime getInsertDateTime() {
-        return insertDateTime;
-    }
-
-    public void setInsertDateTime(LocalDateTime insertDateTime) {
-        this.insertDateTime = insertDateTime;
     }
 }

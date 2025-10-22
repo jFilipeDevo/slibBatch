@@ -25,7 +25,7 @@ public class ChunkLoggingListener implements ChunkListener {
         }
         if (start == end) {
             log.info("Record {} successfully processed.", start);
-        } else{
+        } else {
             log.info("Records from {} to {} successfully processed.", start, end);
         }
     }
@@ -36,5 +36,13 @@ public class ChunkLoggingListener implements ChunkListener {
     @Override
     public void afterChunkError(ChunkContext context) {
         log.error("Error on processing chunk.");
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
