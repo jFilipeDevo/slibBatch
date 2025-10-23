@@ -71,8 +71,4 @@ public class JobCompletionListener implements JobExecutionListener {
     public void setChunkLoggingListener(ChunkLoggingListener chunkLoggingListener) {
         this.chunkLoggingListener = chunkLoggingListener;
     }
-
-    public ChunkLoggingListener getChunkLoggingListener() {
-        return chunkLoggingListener;
-    }
 }

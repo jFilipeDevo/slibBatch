@@ -34,7 +34,6 @@ public class JSONJobConfig {
         this.jobCompletionListener = jobCompletionListener;
         chunkLoggingListener = new ChunkLoggingListener(CHUNK_SIZE);
         jobCompletionListener.setChunkLoggingListener(chunkLoggingListener);
-        jobCompletionListener.setFileMover(false);
     }
 
     @Bean
@@ -47,10 +46,10 @@ public class JSONJobConfig {
         return new JdbcBatchItemWriterBuilder<kpiConfig>().dataSource(targetDataSource)
                 .sql("INSERT INTO kpi_config (kpi_id, kpi_name, threshold_upper_value," +
                         "threshold_lower_value,target_field_window_values,target_field_window_unit,severity," +
-                        "priority,breach_on,evaluation_frequency,created_at_utc)" +
+                        "breach_on,control_ts,created_at_utc)" +
                         " VALUES (:kpiId, :kpiName, :thresholdUpperValue, :thresholdLowerValue," +
                         ":targetFieldWindowValues, :targetFieldWindowUnit, :severity," +
-                        ":priority, :breachOn, :evaluationFrequency, NOW()) ON CONFLICT (kpi_id) DO NOTHING")
+                        ":breachOn, :controlTs::timestamp, :createdAtUtc::timestamp) ON CONFLICT (kpi_id) DO NOTHING")
                 .assertUpdates(false).beanMapped().build();
     }
 

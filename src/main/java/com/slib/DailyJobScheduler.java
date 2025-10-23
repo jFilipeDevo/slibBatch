@@ -6,28 +6,34 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DailyJobScheduler {
     private static final Logger log = LoggerFactory.getLogger(DailyJobScheduler.class);
-
-    @Autowired
-    private JobLauncher jobLauncher;
-    @Autowired
-    private Job dailyDatabaseJob;
-    @Autowired
-    private Job dailyJSONJob;
-    @Autowired
-    private Job dailyJobDBTBronze;
-    @Autowired
-    private Job dailyJobDBTSilver;
-    @Autowired
-    private Job dailyJobDBTGold;
+    private final JobLauncher jobLauncher;
+    private final Job dailyDatabaseJob;
+    private final Job dailyJSONJob;
+    private final Job dailyJobDBTBronze;
+    private final Job dailyJobDBTSilver;
+    private final Job dailyJobDBTGold;
 
 
+    public DailyJobScheduler(JobLauncher jobLauncher,
+                               @Qualifier("dailyDatabaseJob") Job dailyDatabaseJob,
+                               @Qualifier("dailyJSONJob") Job dailyJSONJob,
+                               @Qualifier("dailyJobDBTBronze") Job dailyJobDBTBronze,
+                               @Qualifier("dailyJobDBTSilver") Job dailyJobDBTSilver,
+                               @Qualifier("dailyJobDBTGold") Job dailyJobDBTGold) {
+        this.jobLauncher = jobLauncher;
+        this.dailyDatabaseJob = dailyDatabaseJob;
+        this.dailyJSONJob = dailyJSONJob;
+        this.dailyJobDBTBronze = dailyJobDBTBronze;
+        this.dailyJobDBTSilver = dailyJobDBTSilver;
+        this.dailyJobDBTGold = dailyJobDBTGold;
+    }
 
     @Scheduled(cron = "${batch.job.cron.bd}")
     public void runDailyJobDatabase() throws Exception {
@@ -49,7 +55,7 @@ public class DailyJobScheduler {
     public void runDailyJobDBTBronze() throws Exception {
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
-        log.info("Launching JSON job at {}", new java.util.Date());
+        log.info("Launching dbt bronze job at {}", new java.util.Date());
         jobLauncher.run(dailyJobDBTBronze, jobParameters);
     }
 
@@ -57,7 +63,7 @@ public class DailyJobScheduler {
     public void runDailyJobDBTSilver() throws Exception {
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
-        log.info("Launching JSON job at {}", new java.util.Date());
+        log.info("Launching dbt silver job at {}", new java.util.Date());
         jobLauncher.run(dailyJobDBTSilver, jobParameters);
     }
 
@@ -65,7 +71,7 @@ public class DailyJobScheduler {
     public void runDailyJobDBTGold() throws Exception {
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("timestamp", System.currentTimeMillis()).toJobParameters();
-        log.info("Launching JSON job at {}", new java.util.Date());
+        log.info("Launching dbt gold job at {}", new java.util.Date());
         jobLauncher.run(dailyJobDBTGold, jobParameters);
     }
 }

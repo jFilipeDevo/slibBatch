@@ -10,8 +10,6 @@ public class kpiConfig {
     @JsonProperty("kpi_name")
     private String kpiName;
     private String unit;
-    @JsonProperty("config_date")
-    private String configDate;
     @JsonProperty("threshold_upper_value")
     private double thresholdUpperValue;
     @JsonProperty("threshold_lower_value")
@@ -21,11 +19,12 @@ public class kpiConfig {
     @JsonProperty("target_field_window_unit")
     private String targetFieldWindowUnit;
     private String severity;
-    private int priority;
     @JsonProperty("breach_on")
     private String breachOn;
-    @JsonProperty("evaluation_frequency")
-    private String evaluationFrequency;
+    @JsonProperty("control_ts")
+    private String controlTs;
+    @JsonProperty("created_at_utc")
+    private String createdAtUtc;
 
     public kpiConfig() {
         super();
@@ -95,14 +94,6 @@ public class kpiConfig {
         this.severity = severity;
     }
 
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
     public String getBreachOn() {
         return breachOn;
     }
@@ -111,19 +102,19 @@ public class kpiConfig {
         this.breachOn = breachOn;
     }
 
-    public String getEvaluationFrequency() {
-        return evaluationFrequency;
+    public String getControlTs() {
+        return controlTs;
     }
 
-    public void setEvaluationFrequency(String evaluationFrequency) {
-        this.evaluationFrequency = evaluationFrequency;
+    public void setControlTs(String controlTs) {
+        this.controlTs = controlTs;
     }
 
-    public String getConfigDate() {
-        return configDate;
+    public String getCreatedAtUtc() {
+        return createdAtUtc;
     }
 
-    public void setConfigDate(String configDate) {
-        this.configDate = configDate;
+    public void setCreatedAtUtc(String createdAtUtc) {
+        this.createdAtUtc = createdAtUtc;
     }
 }

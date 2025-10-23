@@ -45,10 +45,8 @@ public class DBTJobConfig {
 
     @Bean
     public Step dbtBronzeStep() {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         List<String> bodies = List.of(
-                "dbt snapshot -s kpi_config --vars \"{load_from_date = ' "+now.format(formatter)+"' }\"",
+                "dbt snapshot -s kpi_config",
                 "dbt run -s currency_ref",
                 "dbt run -s ds_account_to_risk",
                 "dbt run -s ds_account",
@@ -90,6 +88,7 @@ public class DBTJobConfig {
                 "dbt run -s slv_kpi_09_mr_observ_exceed",
                 "dbt run -s slv_kpi_10_mr_zscore",
                 "dbt run -s slv_fct_portfolio_alert_events",
+                "dbt run -s slv_dim_kpi",
                 "dbt run -s slv_dim_ccp"
         );
         return new StepBuilder("dbtSilverStep", jobRepository)
@@ -114,6 +113,7 @@ public class DBTJobConfig {
                 "dbt run -s gld_fct_portfolio_margin_eod",
                 "dbt run -s gld_fct_portfolio_margin_eod_ccp",
                 "dbt run -s gld_dim_ccp",
+                "dbt run -s gld_dim_kpi",
                 "dbt run -s gld_fct_portfolio_alert_events"
         );
         return new StepBuilder("dbtGoldStep", jobRepository)
@@ -127,15 +127,17 @@ public class DBTJobConfig {
                 .start(dbtGoldStep).build();
     }
 
-    private Tasklet dbtTasklet(List<String>  bodies) {
+    private Tasklet dbtTasklet(List<String>  commands) {
         return (contribution, chunkContext) -> {
             RestTemplate restTemplate = new RestTemplate();
-            for (String body : bodies) {
+            for (String command : commands) {
                 log.info("Calling DBT: {}", bdtURL);
+                LocalDateTime now = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ISO_TIME;
+                String cmdWithTimestamp = command + " --vars \"{load_from_date = ' "+now.format(formatter)+"' }\"";
                 retryTemplate.execute(context -> {
-                    ResponseEntity<String> response = null;
                     try {
-                        response = restTemplate.postForEntity(bdtURL, body, String.class);
+                        ResponseEntity<String> response = restTemplate.postForEntity(bdtURL, cmdWithTimestamp, String.class);
                         log.info("Calling DBT successfully: {}", response);
                     } catch (Exception e) {
                         log.error("DBT call failed: {}", e.getMessage(), e);

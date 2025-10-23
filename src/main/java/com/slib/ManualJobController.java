@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/batch")
 public class ManualJobController {
     private static final Logger log = LoggerFactory.getLogger(ManualJobController.class);
-
     private final JobLauncher jobLauncher;
     private final Job dailyDatabaseJob;
     private final Job dailyJSONJob;
@@ -51,8 +50,7 @@ public class ManualJobController {
             jobLauncher.run(dailyDatabaseJob, params);
             return ResponseEntity.ok("Job launched successfully!");
         } catch (Exception e) {
-            log.error("Failed to launch job manually: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
+            return getStringResponseEntity(e);
         }
     }
 
@@ -65,8 +63,7 @@ public class ManualJobController {
             jobLauncher.run(dailyJSONJob, params);
             return ResponseEntity.ok("Job launched successfully!");
         } catch (Exception e) {
-            log.error("Failed to launch job manually: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
+            return getStringResponseEntity(e);
         }
     }
 
@@ -79,8 +76,7 @@ public class ManualJobController {
             jobLauncher.run(dailyJobDBTBronze, params);
             return ResponseEntity.ok("Job launched successfully!");
         } catch (Exception e) {
-            log.error("Failed to launch job manually: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
+            return getStringResponseEntity(e);
         }
     }
 
@@ -93,8 +89,7 @@ public class ManualJobController {
             jobLauncher.run(dailyJobDBTSilver, params);
             return ResponseEntity.ok("Job launched successfully!");
         } catch (Exception e) {
-            log.error("Failed to launch job manually: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
+            return getStringResponseEntity(e);
         }
     }
 
@@ -107,8 +102,13 @@ public class ManualJobController {
             jobLauncher.run(dailyJobDBTGold, params);
             return ResponseEntity.ok("Job launched successfully!");
         } catch (Exception e) {
-            log.error("Failed to launch job manually: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
+            return getStringResponseEntity(e);
         }
+    }
+
+
+    private static ResponseEntity<String> getStringResponseEntity(Exception e) {
+        log.error("Failed to launch job manually: {}", e.getMessage());
+        return ResponseEntity.internalServerError().body("Failed to launch job: " + e.getMessage());
     }
 }

@@ -362,6 +362,28 @@ public class DatabaseJobConfig {
     }
 
     @Bean
+    public JdbcBatchItemWriter<DsAlgoExternalResultsDTO> writerDsAlgoExternalResults() {
+        String[] sql = generateSql(DsAlgoExternalResultsDTO.class, "ds_algo_external_results");
+        return new JdbcBatchItemWriterBuilder<DsAlgoExternalResultsDTO>().dataSource(targetDataSource)
+                .sql(sql[1]).beanMapped().assertUpdates(false).build();
+    }
+
+    @Bean
+    public Step dsAlgoExternalResultsStep(JdbcBatchItemWriter<DsAlgoExternalResultsDTO> writerDsAlgoExternalResults) {
+        String[] sql = generateSql(DsAlgoExternalResultsDTO.class, "ds_algo_external_results");
+        String selectSql = sql[0];
+        JdbcCursorItemReader<DsAlgoExternalResultsDTO> reader = new JdbcCursorItemReaderBuilder<DsAlgoExternalResultsDTO>()
+                .dataSource(sourceDataSource).name("jdbcReader")
+                .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsAlgoExternalResultsDTO.class)).build();
+        return new StepBuilder("dsAlgoExternalResultsStep", jobDatabaseRepository)
+                .<DsAlgoExternalResultsDTO, DsAlgoExternalResultsDTO>chunk(CHUNK_SIZE, transactionManager)
+                .faultTolerant().retryLimit(retryLimit)
+                .backOffPolicy(new CustomFixedBackOffPolicy()).retry(Exception.class)
+                .listener(new ChunkLoggingListener(CHUNK_SIZE))
+                .reader(reader).writer(writerDsAlgoExternalResults).build();
+    }
+
+    @Bean
     public JdbcBatchItemWriter<PortfolioToRiskDTO> writerPortfolioToRisk() {
         String[] sql = generateSql(PortfolioToRiskDTO.class, "portfolio_to_risk");
         return new JdbcBatchItemWriterBuilder<PortfolioToRiskDTO>().dataSource(targetDataSource)
@@ -443,6 +465,7 @@ public class DatabaseJobConfig {
                                 @Qualifier("dsRiskUnitStep") Step dsRiskUnitStep,
                                 @Qualifier("expositionVacationStep") Step expositionVacationStep,
                                 @Qualifier("portfolioStep") Step portfolioStep,
+                                @Qualifier("dsAlgoExternalResultsStep") Step dsAlgoExternalResultsStep,
                                 @Qualifier("portfolioToRiskStep") Step portfolioToRiskStep,
                                 @Qualifier("riskUnitStep") Step riskUnitStep,
                                 @Qualifier("superClientStep") Step superClientStep) {
@@ -451,8 +474,8 @@ public class DatabaseJobConfig {
                 .start(accountStep).next(clientEntityStep).next(connectorParamStep).next(currencyRefStep)
                 .next(dsAccountStep).next(dsAccountToRiskStep).next(dsClientEntityStep).next(dsExpositionVacationStep)
                 .next(dsPortfolioStep).next(dsPortfolioMrCcpStep).next(dsPortfolioToRiskStep).next(dsRiskUnitStep)
-                .next(expositionVacationStep).next(portfolioStep).next(portfolioToRiskStep)
-                .next(riskUnitStep).next(superClientStep).build();
+                .next(expositionVacationStep).next(portfolioStep).next(dsAlgoExternalResultsStep)
+                .next(portfolioToRiskStep).next(riskUnitStep).next(superClientStep).build();
     }
 
     private <T> String[] generateSql(Class<T> dtoClass, String schemaAndTableName) {
@@ -464,7 +487,7 @@ public class DatabaseJobConfig {
                 .map(Field::getName).map(name -> ":" + name).collect(Collectors.joining(","));
         String selectSql = "SELECT " + columnList + " FROM " + schemaAndTableName;
         String insertSql = "INSERT INTO " + schemaAndTableName + " (" + columnList +
-                ") VALUES (" + valueList + ") ON CONFLICT (ds_id) DO NOTHING";
+                ") VALUES (" + valueList + ") ON CONFLICT (id) DO NOTHING";
         return new String[]{selectSql, insertSql};
     }
 }
