@@ -1,0 +1,17 @@
+2025-10-17T11:16:54.129+01:00  INFO 22152 --- [main] com.slib.MyApplication                   : Starting MyApplication using Java 25 with PID 22152 (C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target\slibBatch-1.0.0.jar started by joao.simoes.filipe in C:\Users\joao.simoes.filipe\IdeaProjects\slibBatch\target)
+2025-10-17T11:16:54.132+01:00  INFO 22152 --- [main] com.slib.MyApplication                   : No active profile set, falling back to 1 default profile: "default"
+2025-10-17T11:16:55.751+01:00  INFO 22152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-17T11:16:55.772+01:00  INFO 22152 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-17T11:16:55.773+01:00  INFO 22152 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-17T11:16:55.836+01:00  INFO 22152 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-17T11:16:55.837+01:00  INFO 22152 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1597 ms
+2025-10-17T11:16:56.038+01:00  INFO 22152 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-17T11:16:56.325+01:00  INFO 22152 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:batchdb user=SA
+2025-10-17T11:16:56.328+01:00  INFO 22152 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-17T11:16:57.254+01:00  INFO 22152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-17T11:16:57.334+01:00  INFO 22152 --- [main] com.slib.MyApplication                   : Started MyApplication in 3.829 seconds (process running for 4.424)
+2025-10-17T11:17:01.199+01:00  INFO 22152 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-17T11:17:01.225+01:00  INFO 22152 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-17T11:17:01.232+01:00  WARN 22152 --- [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Custom destroy method 'close' on bean with name 'readerJSON' propagated an exception: org.springframework.batch.item.ItemStreamException: Error while closing item reader
+2025-10-17T11:17:01.233+01:00  INFO 22152 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-17T11:17:01.236+01:00  INFO 22152 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

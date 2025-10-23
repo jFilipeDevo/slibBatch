@@ -1,0 +1,12 @@
+com\slib\DataSourceConfig.class
+com\slib\FileMover.class
+com\slib\bd\DatabaseBatchJobConfig.class
+com\slib\json\JSONBatchJobConfig.class
+com\slib\bd\entity\DsPortfolio.class
+com\slib\RetryConfig.class
+com\slib\listener\JobCompletionListener.class
+com\slib\MyApplication.class
+com\slib\ManualJobController.class
+com\slib\listener\ChunkLoggingListener.class
+com\slib\DailyJobScheduler.class
+com\slib\json\kpiConfig.class
