@@ -18,8 +18,6 @@ public class AccountDTO {
     private String type;
     private String account;
 
-
-
     public BigDecimal getId() {
         return id;
     }
