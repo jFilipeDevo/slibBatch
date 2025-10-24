@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <spring.boot.version>3.2.2</spring.boot.version>
         <project.build.sourceEncodslibBatching>UTF-8</project.build.sourceEncodslibBatching>
     </properties>
     <dependencies>
@@ -22,7 +23,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.5.6</version>
+            <version>3.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.batch</groupId>
