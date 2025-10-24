@@ -17,9 +17,15 @@ public class DataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "sourceDataSource")
-    @ConfigurationProperties(prefix = "source.datasource")
-    public DataSource sourceDataSource() {
+    @Bean(name = "sourceCoreDataSource")
+    @ConfigurationProperties(prefix = "source.core.datasource")
+    public DataSource sourceCoreDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean(name = "sourceDashboardDataSource")
+    @ConfigurationProperties(prefix = "source.dashboard.datasource")
+    public DataSource sourceDashboardDataSource() {
         return DataSourceBuilder.create().build();
     }
 

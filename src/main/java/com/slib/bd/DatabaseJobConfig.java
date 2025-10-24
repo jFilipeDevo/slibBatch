@@ -29,7 +29,8 @@ import java.util.stream.Collectors;
 @Configuration
 public class DatabaseJobConfig {
     private static final int CHUNK_SIZE = 50;
-    private final DataSource sourceDataSource;
+    private final DataSource sourceCoreDataSource;
+    private final DataSource sourceDashboardDataSource;
     private final DataSource targetDataSource;
     private final JobRepository jobDatabaseRepository;
     private final PlatformTransactionManager transactionManager;
@@ -39,12 +40,14 @@ public class DatabaseJobConfig {
 
     // Restoring explicit injection via constructor
     public DatabaseJobConfig(
-            @Qualifier("sourceDataSource") DataSource sourceDataSource,
+            @Qualifier("sourceCoreDataSource") DataSource sourceCoreDataSource,
+            @Qualifier("sourceDashboardDataSource") DataSource sourceDashboardDataSource,
             @Qualifier("targetDataSource") DataSource targetDataSource,
             JobRepository jobDatabaseRepository,
             PlatformTransactionManager transactionManager,
             JobCompletionListener jobCompletionListener) {
-        this.sourceDataSource = sourceDataSource;
+        this.sourceCoreDataSource = sourceCoreDataSource;
+        this.sourceDashboardDataSource = sourceDashboardDataSource;
         this.targetDataSource = targetDataSource;
         this.jobDatabaseRepository = jobDatabaseRepository;
         this.transactionManager = transactionManager;
@@ -64,7 +67,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(AccountDTO.class, "account");
         String selectSql = sql[0];
         JdbcCursorItemReader<AccountDTO> reader = new JdbcCursorItemReaderBuilder<AccountDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(AccountDTO.class)).build();
         return new StepBuilder("accountStep", jobDatabaseRepository)
                 .<AccountDTO, AccountDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -86,7 +89,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(ClientEntityDTO.class, "client_entity");
         String selectSql = sql[0];
         JdbcCursorItemReader<ClientEntityDTO> reader = new JdbcCursorItemReaderBuilder<ClientEntityDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(ClientEntityDTO.class)).build();
         return new StepBuilder("clientEntityStep", jobDatabaseRepository)
                 .<ClientEntityDTO, ClientEntityDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -108,7 +111,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(ConnectorParamDTO.class, "connector_param");
         String selectSql = sql[0];
         JdbcCursorItemReader<ConnectorParamDTO> reader = new JdbcCursorItemReaderBuilder<ConnectorParamDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(ConnectorParamDTO.class)).build();
         return new StepBuilder("connectorParamStep", jobDatabaseRepository)
                 .<ConnectorParamDTO, ConnectorParamDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -130,7 +133,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(CurrencyRefDTO.class, "currency_ref");
         String selectSql = sql[0];
         JdbcCursorItemReader<CurrencyRefDTO> reader = new JdbcCursorItemReaderBuilder<CurrencyRefDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(CurrencyRefDTO.class)).build();
         return new StepBuilder("currencyRefStep", jobDatabaseRepository)
                 .<CurrencyRefDTO, CurrencyRefDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -153,7 +156,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsAccountDTO.class, "ds_account");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsAccountDTO> reader = new JdbcCursorItemReaderBuilder<DsAccountDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsAccountDTO.class)).build();
         return new StepBuilder("dsAccountStep", jobDatabaseRepository)
                 .<DsAccountDTO, DsAccountDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -175,7 +178,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsAccountToRiskDTO.class, "ds_account_to_risk");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsAccountToRiskDTO> reader = new JdbcCursorItemReaderBuilder<DsAccountToRiskDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsAccountToRiskDTO.class)).build();
         return new StepBuilder("dsAccountToRiskStep", jobDatabaseRepository)
                 .<DsAccountToRiskDTO, DsAccountToRiskDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -197,7 +200,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsClientEntityDTO.class, "ds_client_entity");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsClientEntityDTO> reader = new JdbcCursorItemReaderBuilder<DsClientEntityDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsClientEntityDTO.class)).build();
         return new StepBuilder("dsClientEntityStep", jobDatabaseRepository)
                 .<DsClientEntityDTO, DsClientEntityDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -219,7 +222,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsExpositionVacationDTO.class, "ds_exposition_vacation");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsExpositionVacationDTO> reader = new JdbcCursorItemReaderBuilder<DsExpositionVacationDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsExpositionVacationDTO.class)).build();
         return new StepBuilder("dsExpositionVacationStep", jobDatabaseRepository)
                 .<DsExpositionVacationDTO, DsExpositionVacationDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -241,7 +244,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsPortfolioDTO.class, "ds_portfolio");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsPortfolioDTO> reader = new JdbcCursorItemReaderBuilder<DsPortfolioDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsPortfolioDTO.class)).build();
         return new StepBuilder("dsPortfolioStep", jobDatabaseRepository)
                 .<DsPortfolioDTO, DsPortfolioDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -263,7 +266,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsPortfolioMrCcpDTO.class, "ds_portfolio_mr_ccp");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsPortfolioMrCcpDTO> reader = new JdbcCursorItemReaderBuilder<DsPortfolioMrCcpDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsPortfolioMrCcpDTO.class)).build();
         return new StepBuilder("dsPortfolioMrCcpStep", jobDatabaseRepository)
                 .<DsPortfolioMrCcpDTO, DsPortfolioMrCcpDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -285,7 +288,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsPortfolioToRiskDTO.class, "ds_portfolio_to_risk");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsPortfolioToRiskDTO> reader = new JdbcCursorItemReaderBuilder<DsPortfolioToRiskDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsPortfolioToRiskDTO.class)).build();
         return new StepBuilder("dsPortfolioToRiskStep", jobDatabaseRepository)
                 .<DsPortfolioToRiskDTO, DsPortfolioToRiskDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -307,7 +310,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsRiskUnitDTO.class, "ds_risk_unit");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsRiskUnitDTO> reader = new JdbcCursorItemReaderBuilder<DsRiskUnitDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsRiskUnitDTO.class)).build();
         return new StepBuilder("dsRiskUnitStep", jobDatabaseRepository)
                 .<DsRiskUnitDTO, DsRiskUnitDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -329,7 +332,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(ExpositionVacationDTO.class, "exposition_vacation");
         String selectSql = sql[0];
         JdbcCursorItemReader<ExpositionVacationDTO> reader = new JdbcCursorItemReaderBuilder<ExpositionVacationDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(ExpositionVacationDTO.class)).build();
         return new StepBuilder("expositionVacationStep", jobDatabaseRepository)
                 .<ExpositionVacationDTO, ExpositionVacationDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -351,7 +354,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(PortfolioDTO.class, "portfolio");
         String selectSql = sql[0];
         JdbcCursorItemReader<PortfolioDTO> reader = new JdbcCursorItemReaderBuilder<PortfolioDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(PortfolioDTO.class)).build();
         return new StepBuilder("portfolioStep", jobDatabaseRepository)
                 .<PortfolioDTO, PortfolioDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -373,7 +376,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(DsAlgoExternalResultsDTO.class, "ds_algo_external_results");
         String selectSql = sql[0];
         JdbcCursorItemReader<DsAlgoExternalResultsDTO> reader = new JdbcCursorItemReaderBuilder<DsAlgoExternalResultsDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(DsAlgoExternalResultsDTO.class)).build();
         return new StepBuilder("dsAlgoExternalResultsStep", jobDatabaseRepository)
                 .<DsAlgoExternalResultsDTO, DsAlgoExternalResultsDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -395,7 +398,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(PortfolioToRiskDTO.class, "portfolio_to_risk");
         String selectSql = sql[0];
         JdbcCursorItemReader<PortfolioToRiskDTO> reader = new JdbcCursorItemReaderBuilder<PortfolioToRiskDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(PortfolioToRiskDTO.class)).build();
         return new StepBuilder("portfolioToRiskStep", jobDatabaseRepository)
                 .<PortfolioToRiskDTO, PortfolioToRiskDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -417,7 +420,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(RiskUnitDTO.class, "risk_unit");
         String selectSql = sql[0];
         JdbcCursorItemReader<RiskUnitDTO> reader = new JdbcCursorItemReaderBuilder<RiskUnitDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(RiskUnitDTO.class)).build();
         return new StepBuilder("riskUnitStep", jobDatabaseRepository)
                 .<RiskUnitDTO, RiskUnitDTO>chunk(CHUNK_SIZE, transactionManager)
@@ -439,7 +442,7 @@ public class DatabaseJobConfig {
         String[] sql = generateSql(SuperClientDTO.class, "super_client");
         String selectSql = sql[0];
         JdbcCursorItemReader<SuperClientDTO> reader = new JdbcCursorItemReaderBuilder<SuperClientDTO>()
-                .dataSource(sourceDataSource).name("jdbcReader")
+                .dataSource(sourceCoreDataSource).name("jdbcReader")
                 .sql(selectSql).rowMapper(new BeanPropertyRowMapper<>(SuperClientDTO.class)).build();
         return new StepBuilder("superClientStep", jobDatabaseRepository)
                 .<SuperClientDTO, SuperClientDTO>chunk(CHUNK_SIZE, transactionManager)
