@@ -485,8 +485,8 @@ public class DatabaseJobConfig {
                 .collect(Collectors.joining(","));
         String valueList = Arrays.stream(dtoClass.getDeclaredFields())
                 .map(Field::getName).map(name -> ":" + name).collect(Collectors.joining(","));
-        String selectSql = "SELECT " + columnList + " FROM " + schemaAndTableName;
-        String insertSql = "INSERT INTO " + schemaAndTableName + " (" + columnList +
+        String selectSql = "SELECT " + columnList + " FROM rmt_dashboards." + schemaAndTableName;
+        String insertSql = "INSERT INTO rmt_dashboards." + schemaAndTableName + " (" + columnList +
                 ") VALUES (" + valueList + ") ON CONFLICT (id) DO NOTHING";
         return new String[]{selectSql, insertSql};
     }
